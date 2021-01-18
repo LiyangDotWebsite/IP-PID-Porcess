@@ -2,7 +2,7 @@ import psutil
 from time import sleep
 import logging
 
-logging.basicConfig(filename='example.log', encoding='utf-8', format='%(asctime)s %(message)s', level=logging.DEBUG)
+logging.basicConfig(filename='process.log', encoding='utf-8', format='%(asctime)s %(message)s', level=logging.DEBUG)
 
 def check_con(target_ip):
 	net_con = psutil.net_connections()
