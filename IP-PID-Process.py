@@ -13,7 +13,7 @@ def check_con(target_ip):
 		except:
 			ip = ''
 			stat = ''
-		if ip == target_ip and stat=='ESTABLISHED':
+		if (ip == target_ip_1 or ip == target_ip_2) and stat=='ESTABLISHED':
 			pid = i[6]
 			logging.info("Found PID"+str(pid))
 			if psutil.pid_exists(pid):
@@ -26,9 +26,10 @@ def check_con(target_ip):
 
 if __name__=='__main__':
 	logging.info("Starting")
-	target_ip = '149.129.123.10'
-	logging.info("Target: " + target_ip)
-	print('Detecting the network connections to %s '% target_ip)
+	target_ip_1 = '*.*.*.*'
+	target_ip_2 = '*.*.*.*'
+	logging.info("Target: %s , %s"  %(target_ip_1 , target_ip_2))
+	print("Detecting the network connections to %s " % target_ip)
 	while True:
 		check_con(target_ip)
 		sleep(0.5)
